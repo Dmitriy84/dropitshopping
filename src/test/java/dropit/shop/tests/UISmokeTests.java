@@ -10,7 +10,9 @@ public final class UISmokeTests extends BaseTest {
     @Test
     public void testProxifying() {
         //TODO move URL to properties
-        driver.get("http://localhost:4100/");
+        String uri = "http://localhost:4100/";
+
+        driver.get(uri);
 
         HomePage homePage = new HomePage(driver);
 
@@ -31,7 +33,7 @@ public final class UISmokeTests extends BaseTest {
         testTag.click();
 
         useProxy = true;
-        driver.navigate().refresh();
+        driver.get(uri);
         homePage.waitPagination();
 
         Assertions.assertAll(() -> {
