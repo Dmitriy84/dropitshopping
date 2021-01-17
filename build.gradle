@@ -9,13 +9,19 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    junit = '5.7.0'
+    browsermob = '2.1.5'
+    selenium = '3.141.59'
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit"
     // https://mvnrepository.com/artifact/net.lightbody.bmp/browsermob-proxy
-    compile group: 'net.lightbody.bmp', name: 'browsermob-core', version: '2.1.5'
+    compile group: 'net.lightbody.bmp', name: 'browsermob-core', version: browsermob
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: selenium
 }
 
 test {
