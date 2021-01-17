@@ -32,6 +32,7 @@ public final class UISmokeTests extends BaseTest {
 
         useProxy = true;
         driver.navigate().refresh();
+        homePage.waitPagination();
 
         Assertions.assertAll(() -> {
                     Assertions.assertEquals(12, homePage.articles.size(), "Unexpected articles on the page");
