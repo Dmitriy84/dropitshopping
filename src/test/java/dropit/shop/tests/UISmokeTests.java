@@ -13,7 +13,6 @@ public final class UISmokeTests extends BaseTest {
         String uri = "http://localhost:4100/";
 
         driver.get(uri);
-
         HomePage homePage = new HomePage(driver);
 
         homePage.waitPageLoaded();
@@ -34,11 +33,12 @@ public final class UISmokeTests extends BaseTest {
 
         useProxy = true;
         driver.get(uri);
-        homePage.waitPagination();
+        HomePage page = new HomePage(driver);
+        page.waitPagination();
 
         Assertions.assertAll(() -> {
-                    Assertions.assertEquals(12, homePage.articles.size(), "Unexpected articles on the page");
-                    Assertions.assertEquals(2, homePage.pages.size(), "Unexpected pages");
+                    Assertions.assertEquals(12, page.articles.size(), "Unexpected articles on the page");
+                    Assertions.assertEquals(2, page.pages.size(), "Unexpected pages");
                 }
         );
     }
