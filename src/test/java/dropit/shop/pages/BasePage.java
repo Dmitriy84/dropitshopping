@@ -13,7 +13,7 @@ public class BasePage {
     private static final int POLLING = 100;
 
     protected WebDriver driver;
-    private WebDriverWait wait;
+    protected WebDriverWait wait;
 
     BasePage(WebDriver driver) {
         this.driver = driver;

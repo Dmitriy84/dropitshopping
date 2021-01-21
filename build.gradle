@@ -9,13 +9,26 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    junit = '5.7.0'
+    browsermob = '2.1.5'
+    selenium = '3.141.59'
+    json = '20201115'
+    brotli = '0.1.2'
+}
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation "org.json:json:$json"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit"
     // https://mvnrepository.com/artifact/net.lightbody.bmp/browsermob-proxy
-    compile group: 'net.lightbody.bmp', name: 'browsermob-core', version: '2.1.5'
+    compile group: 'net.lightbody.bmp', name: 'browsermob-core', version: browsermob
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: selenium
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-compress
+    compile group: 'org.apache.commons', name: 'commons-compress', version: '1.20'
+    // https://mvnrepository.com/artifact/org.brotli/dec
+    compile group: 'org.brotli', name: 'dec', version: brotli
 }
 
 test {
